@@ -316,7 +316,7 @@
             // 
             // btnFROut
             // 
-            this.btnFROut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnFROut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFROut.Location = new System.Drawing.Point(749, 412);
             this.btnFROut.Name = "btnFROut";
             this.btnFROut.Size = new System.Drawing.Size(76, 35);

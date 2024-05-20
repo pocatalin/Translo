@@ -1,0 +1,25 @@
+﻿public enum ColorsEnum
+{
+    White,
+    Black,
+    Red,
+    Green,
+    Blue,
+    Yellow,
+    Orange,
+    Purple,
+    Cyan,
+    Magenta,
+    Pink,
+    Brown,
+    Maroon,
+    Navy,
+    Teal,
+    Olive,
+    Peach,
+    Lavender,
+    Indigo,
+    Turquoise,
+    Gold,
+    Silver
+}

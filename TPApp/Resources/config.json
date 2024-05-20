@@ -1,0 +1,7 @@
+﻿{
+  "ColorOne": "red",
+  "ColorTwo": "blue",
+  "GradientType": "Linear",
+  "Voice": "Female",
+  "MaxShapes" : 10
+}

@@ -50,6 +50,9 @@
             this.btnROOut = new MetroFramework.Controls.MetroButton();
             this.btnSPOut = new MetroFramework.Controls.MetroButton();
             this.btnFROut = new MetroFramework.Controls.MetroButton();
+            this.btnAppearance = new MetroFramework.Controls.MetroButton();
+            this.btnTextSpeechIn = new FontAwesome.Sharp.IconButton();
+            this.btnTextSpeechOut = new FontAwesome.Sharp.IconButton();
             this.titlePanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,7 +67,7 @@
             this.titlePanel.ForeColor = System.Drawing.Color.Transparent;
             this.titlePanel.Location = new System.Drawing.Point(-5, -6);
             this.titlePanel.Name = "titlePanel";
-            this.titlePanel.Size = new System.Drawing.Size(1096, 50);
+            this.titlePanel.Size = new System.Drawing.Size(1596, 50);
             this.titlePanel.TabIndex = 0;
             this.titlePanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titlePanel_MouseDown);
             // 
@@ -80,10 +83,11 @@
             this.btnResize.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnResize.IconColor = System.Drawing.Color.Transparent;
             this.btnResize.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnResize.Location = new System.Drawing.Point(1000, 15);
+            this.btnResize.Location = new System.Drawing.Point(1500, 15);
             this.btnResize.Name = "btnResize";
             this.btnResize.Size = new System.Drawing.Size(50, 30);
             this.btnResize.TabIndex = 4;
+            this.btnResize.TabStop = false;
             this.btnResize.UseVisualStyleBackColor = false;
             this.btnResize.Click += new System.EventHandler(this.btnResize_Click);
             // 
@@ -99,10 +103,11 @@
             this.btnTask.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnTask.IconColor = System.Drawing.Color.Transparent;
             this.btnTask.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnTask.Location = new System.Drawing.Point(950, 15);
+            this.btnTask.Location = new System.Drawing.Point(1450, 15);
             this.btnTask.Name = "btnTask";
             this.btnTask.Size = new System.Drawing.Size(50, 30);
             this.btnTask.TabIndex = 3;
+            this.btnTask.TabStop = false;
             this.btnTask.UseVisualStyleBackColor = false;
             this.btnTask.Click += new System.EventHandler(this.btnTask_Click);
             // 
@@ -118,10 +123,11 @@
             this.btnClose.IconChar = FontAwesome.Sharp.IconChar.None;
             this.btnClose.IconColor = System.Drawing.Color.Transparent;
             this.btnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnClose.Location = new System.Drawing.Point(1050, 15);
+            this.btnClose.Location = new System.Drawing.Point(1550, 15);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(50, 30);
             this.btnClose.TabIndex = 1;
+            this.btnClose.TabStop = false;
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
@@ -130,68 +136,75 @@
             this.cmbOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbOut.FormattingEnabled = true;
             this.cmbOut.ItemHeight = 24;
-            this.cmbOut.Location = new System.Drawing.Point(570, 412);
+            this.cmbOut.Location = new System.Drawing.Point(820, 667);
             this.cmbOut.Name = "cmbOut";
-            this.cmbOut.Size = new System.Drawing.Size(173, 30);
+            this.cmbOut.Size = new System.Drawing.Size(315, 30);
             this.cmbOut.TabIndex = 10;
+            this.cmbOut.TabStop = false;
             // 
             // btnENOut
             // 
             this.btnENOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnENOut.Location = new System.Drawing.Point(995, 412);
+            this.btnENOut.Location = new System.Drawing.Point(1429, 667);
             this.btnENOut.Name = "btnENOut";
-            this.btnENOut.Size = new System.Drawing.Size(76, 35);
+            this.btnENOut.Size = new System.Drawing.Size(90, 35);
             this.btnENOut.TabIndex = 7;
+            this.btnENOut.TabStop = false;
             this.btnENOut.Text = "English";
             this.btnENOut.Click += new System.EventHandler(this.btnENOut_Click);
             // 
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(990, 521);
+            this.btnSave.Location = new System.Drawing.Point(1480, 771);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(80, 35);
+            this.btnSave.Size = new System.Drawing.Size(90, 35);
             this.btnSave.TabIndex = 11;
+            this.btnSave.TabStop = false;
             this.btnSave.Text = "Save";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnOpen
             // 
             this.btnOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOpen.Location = new System.Drawing.Point(904, 521);
+            this.btnOpen.Location = new System.Drawing.Point(1384, 771);
             this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(80, 35);
+            this.btnOpen.Size = new System.Drawing.Size(90, 35);
             this.btnOpen.TabIndex = 12;
+            this.btnOpen.TabStop = false;
             this.btnOpen.Text = "Open";
             this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
             // btnENIn
             // 
             this.btnENIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnENIn.Location = new System.Drawing.Point(15, 412);
+            this.btnENIn.Location = new System.Drawing.Point(66, 667);
             this.btnENIn.Name = "btnENIn";
-            this.btnENIn.Size = new System.Drawing.Size(76, 35);
+            this.btnENIn.Size = new System.Drawing.Size(90, 35);
             this.btnENIn.TabIndex = 3;
+            this.btnENIn.TabStop = false;
             this.btnENIn.Text = "English";
             this.btnENIn.Click += new System.EventHandler(this.btnENIn_Click);
             // 
             // btnROIn
             // 
             this.btnROIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnROIn.Location = new System.Drawing.Point(97, 412);
+            this.btnROIn.Location = new System.Drawing.Point(162, 668);
             this.btnROIn.Name = "btnROIn";
-            this.btnROIn.Size = new System.Drawing.Size(76, 35);
+            this.btnROIn.Size = new System.Drawing.Size(90, 35);
             this.btnROIn.TabIndex = 4;
+            this.btnROIn.TabStop = false;
             this.btnROIn.Text = "Romanian";
             this.btnROIn.Click += new System.EventHandler(this.btnROIn_Click);
             // 
             // btnSPIn
             // 
             this.btnSPIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSPIn.Location = new System.Drawing.Point(179, 412);
+            this.btnSPIn.Location = new System.Drawing.Point(258, 668);
             this.btnSPIn.Name = "btnSPIn";
-            this.btnSPIn.Size = new System.Drawing.Size(76, 35);
+            this.btnSPIn.Size = new System.Drawing.Size(90, 35);
             this.btnSPIn.TabIndex = 5;
+            this.btnSPIn.TabStop = false;
             this.btnSPIn.Text = "Spanish";
             this.btnSPIn.Click += new System.EventHandler(this.btnSPIn_Click);
             // 
@@ -200,16 +213,18 @@
             this.cmbIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cmbIn.FormattingEnabled = true;
             this.cmbIn.ItemHeight = 24;
-            this.cmbIn.Location = new System.Drawing.Point(343, 412);
+            this.cmbIn.Location = new System.Drawing.Point(450, 668);
             this.cmbIn.Name = "cmbIn";
-            this.cmbIn.Size = new System.Drawing.Size(172, 30);
+            this.cmbIn.Size = new System.Drawing.Size(315, 30);
             this.cmbIn.TabIndex = 6;
+            this.cmbIn.TabStop = false;
             // 
             // tbIn
             // 
             this.tbIn.AllowDrop = true;
             this.tbIn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.tbIn.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tbIn.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.tbIn.FontWeight = MetroFramework.MetroTextBoxWeight.Bold;
             this.tbIn.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -217,8 +232,8 @@
             this.tbIn.Multiline = true;
             this.tbIn.Name = "tbIn";
             this.tbIn.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbIn.Size = new System.Drawing.Size(500, 350);
-            this.tbIn.Style = MetroFramework.MetroColorStyle.Blue;
+            this.tbIn.Size = new System.Drawing.Size(750, 600);
+            this.tbIn.Style = MetroFramework.MetroColorStyle.Black;
             this.tbIn.TabIndex = 1;
             this.tbIn.UseStyleColors = true;
             // 
@@ -231,12 +246,12 @@
             this.tbOut.CustomForeColor = true;
             this.tbOut.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             this.tbOut.FontWeight = MetroFramework.MetroTextBoxWeight.Bold;
-            this.tbOut.Location = new System.Drawing.Point(570, 56);
+            this.tbOut.Location = new System.Drawing.Point(820, 56);
             this.tbOut.Multiline = true;
             this.tbOut.Name = "tbOut";
             this.tbOut.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.tbOut.Size = new System.Drawing.Size(500, 350);
-            this.tbOut.Style = MetroFramework.MetroColorStyle.Blue;
+            this.tbOut.Size = new System.Drawing.Size(750, 600);
+            this.tbOut.Style = MetroFramework.MetroColorStyle.Black;
             this.tbOut.TabIndex = 13;
             this.tbOut.UseStyleColors = true;
             // 
@@ -259,7 +274,7 @@
             this.labelOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelOut.AutoSize = true;
             this.labelOut.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.labelOut.Location = new System.Drawing.Point(570, 30);
+            this.labelOut.Location = new System.Drawing.Point(820, 30);
             this.labelOut.Name = "labelOut";
             this.labelOut.Size = new System.Drawing.Size(66, 20);
             this.labelOut.TabIndex = 16;
@@ -269,7 +284,7 @@
             // btnSwitch
             // 
             this.btnSwitch.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.btnSwitch.BackColor = System.Drawing.Color.Silver;
+            this.btnSwitch.BackColor = System.Drawing.SystemColors.Control;
             this.btnSwitch.BackgroundImage = global::Translao.Properties.Resources.swich;
             this.btnSwitch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnSwitch.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -277,58 +292,115 @@
             this.btnSwitch.IconChar = FontAwesome.Sharp.IconChar.Nimblr;
             this.btnSwitch.IconColor = System.Drawing.Color.Transparent;
             this.btnSwitch.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.btnSwitch.Location = new System.Drawing.Point(519, 412);
+            this.btnSwitch.Location = new System.Drawing.Point(768, 667);
             this.btnSwitch.Name = "btnSwitch";
-            this.btnSwitch.Size = new System.Drawing.Size(45, 35);
+            this.btnSwitch.Size = new System.Drawing.Size(50, 35);
             this.btnSwitch.TabIndex = 4;
+            this.btnSwitch.TabStop = false;
             this.btnSwitch.UseVisualStyleBackColor = false;
             this.btnSwitch.Click += new System.EventHandler(this.btnSwitch_Click);
             // 
             // btnFRIn
             // 
             this.btnFRIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnFRIn.Location = new System.Drawing.Point(261, 412);
+            this.btnFRIn.Location = new System.Drawing.Point(354, 668);
             this.btnFRIn.Name = "btnFRIn";
-            this.btnFRIn.Size = new System.Drawing.Size(76, 35);
+            this.btnFRIn.Size = new System.Drawing.Size(90, 35);
             this.btnFRIn.TabIndex = 17;
+            this.btnFRIn.TabStop = false;
             this.btnFRIn.Text = "French";
             this.btnFRIn.Click += new System.EventHandler(this.btnFRIn_Click);
             // 
             // btnROOut
             // 
             this.btnROOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnROOut.Location = new System.Drawing.Point(913, 412);
+            this.btnROOut.Location = new System.Drawing.Point(1333, 667);
             this.btnROOut.Name = "btnROOut";
-            this.btnROOut.Size = new System.Drawing.Size(76, 35);
+            this.btnROOut.Size = new System.Drawing.Size(90, 35);
             this.btnROOut.TabIndex = 8;
+            this.btnROOut.TabStop = false;
             this.btnROOut.Text = "Romanian";
             this.btnROOut.Click += new System.EventHandler(this.btnROOut_Click);
             // 
             // btnSPOut
             // 
             this.btnSPOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSPOut.Location = new System.Drawing.Point(831, 412);
+            this.btnSPOut.Location = new System.Drawing.Point(1237, 667);
             this.btnSPOut.Name = "btnSPOut";
-            this.btnSPOut.Size = new System.Drawing.Size(76, 35);
+            this.btnSPOut.Size = new System.Drawing.Size(90, 35);
             this.btnSPOut.TabIndex = 9;
+            this.btnSPOut.TabStop = false;
             this.btnSPOut.Text = "Spanish";
             this.btnSPOut.Click += new System.EventHandler(this.btnSPOut_Click);
             // 
             // btnFROut
             // 
             this.btnFROut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnFROut.Location = new System.Drawing.Point(749, 412);
+            this.btnFROut.Location = new System.Drawing.Point(1141, 667);
             this.btnFROut.Name = "btnFROut";
-            this.btnFROut.Size = new System.Drawing.Size(76, 35);
+            this.btnFROut.Size = new System.Drawing.Size(90, 35);
             this.btnFROut.TabIndex = 18;
+            this.btnFROut.TabStop = false;
             this.btnFROut.Text = "French";
             this.btnFROut.Click += new System.EventHandler(this.btnFROut_Click);
+            // 
+            // btnAppearance
+            // 
+            this.btnAppearance.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAppearance.Location = new System.Drawing.Point(12, 771);
+            this.btnAppearance.Name = "btnAppearance";
+            this.btnAppearance.Size = new System.Drawing.Size(90, 35);
+            this.btnAppearance.TabIndex = 19;
+            this.btnAppearance.TabStop = false;
+            this.btnAppearance.Text = "Appearance";
+            this.btnAppearance.Click += new System.EventHandler(this.btnAppearance_Click);
+            // 
+            // btnTextSpeechIn
+            // 
+            this.btnTextSpeechIn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnTextSpeechIn.BackColor = System.Drawing.SystemColors.Control;
+            this.btnTextSpeechIn.BackgroundImage = global::Translao.Properties.Resources.spker;
+            this.btnTextSpeechIn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnTextSpeechIn.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnTextSpeechIn.ForeColor = System.Drawing.Color.Transparent;
+            this.btnTextSpeechIn.IconChar = FontAwesome.Sharp.IconChar.Nimblr;
+            this.btnTextSpeechIn.IconColor = System.Drawing.Color.Transparent;
+            this.btnTextSpeechIn.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnTextSpeechIn.Location = new System.Drawing.Point(15, 667);
+            this.btnTextSpeechIn.Name = "btnTextSpeechIn";
+            this.btnTextSpeechIn.Size = new System.Drawing.Size(45, 35);
+            this.btnTextSpeechIn.TabIndex = 22;
+            this.btnTextSpeechIn.TabStop = false;
+            this.btnTextSpeechIn.UseVisualStyleBackColor = false;
+            this.btnTextSpeechIn.Click += new System.EventHandler(this.btnTextSpeechIn_Click);
+            // 
+            // btnTextSpeechOut
+            // 
+            this.btnTextSpeechOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTextSpeechOut.BackColor = System.Drawing.SystemColors.Control;
+            this.btnTextSpeechOut.BackgroundImage = global::Translao.Properties.Resources.spker;
+            this.btnTextSpeechOut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnTextSpeechOut.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnTextSpeechOut.ForeColor = System.Drawing.Color.Transparent;
+            this.btnTextSpeechOut.IconChar = FontAwesome.Sharp.IconChar.Nimblr;
+            this.btnTextSpeechOut.IconColor = System.Drawing.Color.Transparent;
+            this.btnTextSpeechOut.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnTextSpeechOut.Location = new System.Drawing.Point(1525, 667);
+            this.btnTextSpeechOut.Name = "btnTextSpeechOut";
+            this.btnTextSpeechOut.Size = new System.Drawing.Size(45, 35);
+            this.btnTextSpeechOut.TabIndex = 23;
+            this.btnTextSpeechOut.TabStop = false;
+            this.btnTextSpeechOut.UseVisualStyleBackColor = false;
+            this.btnTextSpeechOut.Click += new System.EventHandler(this.btnTextSpeechOut_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1082, 553);
+            this.ClientSize = new System.Drawing.Size(1582, 803);
+            this.Controls.Add(this.btnTextSpeechOut);
+            this.Controls.Add(this.btnTextSpeechIn);
+            this.Controls.Add(this.btnAppearance);
             this.Controls.Add(this.btnFROut);
             this.Controls.Add(this.btnFRIn);
             this.Controls.Add(this.btnSwitch);
@@ -380,5 +452,8 @@
         private MetroFramework.Controls.MetroButton btnROOut;
         private MetroFramework.Controls.MetroButton btnSPOut;
         private MetroFramework.Controls.MetroButton btnFROut;
+        private MetroFramework.Controls.MetroButton btnAppearance;
+        private FontAwesome.Sharp.IconButton btnTextSpeechIn;
+        private FontAwesome.Sharp.IconButton btnTextSpeechOut;
     }
 }

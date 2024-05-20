@@ -4,15 +4,20 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Speech.Synthesis;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Translao.Clases.Gradient;
 using Xceed.Words.NET;
+
 
 namespace Translao
 {
@@ -23,19 +28,19 @@ namespace Translao
         private Size formSize;
         private string langIn = "ro";
         private string langOut = "en";
-        private const string apiKey = "";
+        private const string apiKey = "bbd3451dd1bf40ceab31dc67cf3c0f9d";
         private const string endpoint = "https://api.cognitive.microsofttranslator.com";
         private const string location = "westeurope";
         private readonly HttpClient client = new HttpClient();
         private CancellationTokenSource cancellationTokenSource;
         private List<Language> languages;
         private bool allowComboBoxIndexChanged = true;
+        private int MaxShapes;
         public MainForm()
         {
             InitializeComponent();
             this.DoubleBuffered = true;
             this.Icon = Properties.Resources.icon_t;
-            gradient = new Gradient(this, Color.White, Color.Black, Gradient.GradientType.Angular);
             this.Load += MainForm_Load;
             tbIn.TextChanged += TbText_TextChanged;
             client.Timeout = TimeSpan.FromSeconds(30);
@@ -47,7 +52,36 @@ namespace Translao
             this.Load += MainForm_Load;
             this.Resize += MainForm_Resize;
             formSize = this.ClientSize;
+            ApplyGradient();
+
         }
+
+        private void ApplyGradient()
+        {
+            string configFilePath = "Resources\\config.json";
+            string json = File.ReadAllText(configFilePath);
+
+            AppConfig config = JsonConvert.DeserializeObject<AppConfig>(json);
+
+            Color colorOne = Color.FromName(config.ColorOne);
+            Color colorTwo = Color.FromName(config.ColorTwo);
+            string configGradientType = config.GradientType;
+            GradientType gradientType = (GradientType)Enum.Parse(typeof(GradientType), configGradientType);
+            MaxShapes = config.MaxShapes;
+
+
+            gradient = new Gradient(this, colorOne, colorTwo, gradientType, MaxShapes);
+           
+        }
+
+
+
+        public void UpdateGradientColors(Color colorOne, Color colorTwo, GradientType gradientType,int MaxShapes)
+        {
+            gradient.UpdateGradient(ClientRectangle, colorOne, colorTwo, gradientType,MaxShapes);
+            Invalidate();
+        }
+        
         private void MainForm_Resize(object sender, EventArgs e)
         {
             int widthChange = this.ClientSize.Width - formSize.Width;
@@ -95,6 +129,7 @@ namespace Translao
             labelOut.Left = tbOut.Left - labelOut.Width + 69;
 
             formSize = this.ClientSize;
+            RepaintControls(tbIn, tbOut, cmbIn, cmbOut, btnSwitch, labelOut, btnENIn, btnENOut, btnROIn, btnROOut, btnSPIn, btnSPOut, btnFRIn, btnFROut);
         }
 
 
@@ -295,6 +330,22 @@ namespace Translao
                 return translatedText;
             }
         }
+        private async Task SpeakAsync(string text)
+        {
+            string configFilePath = "Resources\\config.json";
+            string json = File.ReadAllText(configFilePath);
+
+            AppConfig config = JsonConvert.DeserializeObject<AppConfig>(json);
+
+            VoiceGender voice = (VoiceGender)config.Voice;
+
+            using (SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer())
+            {
+                speechSynthesizer.SelectVoiceByHints(voice);
+                await Task.Run(() => speechSynthesizer.Speak(text));
+            }
+        }
+
         #endregion
         #region TextBox
 
@@ -342,6 +393,24 @@ namespace Translao
 
         #endregion
         #region Button&Panel
+        private void btnAppearance_Click(object sender, EventArgs e)
+        {
+            using (appearanceForm appearance = new appearanceForm())
+            {
+                appearance.ShowDialog();
+            }
+        }
+
+        private async void btnTextSpeechIn_Click(object sender, EventArgs e)
+        {
+            string toSpeak = tbIn.Text;
+            await SpeakAsync(toSpeak);
+        }
+        private async void btnTextSpeechOut_Click(object sender, EventArgs e)
+        {
+            string toSpeak = tbOut.Text;
+            await SpeakAsync(toSpeak);
+        }
         private void btnSwitch_Click(object sender, EventArgs e)
         {
             string tempLang = langIn;
@@ -354,7 +423,8 @@ namespace Translao
             UpdateButtonHighlights();
             TbText_TextChanged(null, EventArgs.Empty);
             UpdateComboBoxes();
-            RepaintControls(tbIn, tbOut, cmbIn, cmbOut, btnSwitch, labelOut, btnENIn, btnENOut, btnROIn, btnROOut, btnSPIn, btnSPOut, btnFRIn, btnFROut); TbText_TextChanged(null, EventArgs.Empty);
+            RepaintControls(tbIn, tbOut, cmbIn, cmbOut, btnSwitch, labelOut, btnENIn, btnENOut, btnROIn, btnROOut, btnSPIn, btnSPOut, btnFRIn, btnFROut);
+            TbText_TextChanged(null, EventArgs.Empty);
 
 
         }
@@ -406,14 +476,14 @@ namespace Translao
                 formSize = this.ClientSize;
                 this.WindowState = FormWindowState.Maximized;
                 btnResize.Image = Properties.Resources.minimize;
-                Refresh();
+                RepaintControls(tbIn, tbOut, cmbIn, cmbOut, btnSwitch, labelOut, btnENIn, btnENOut, btnROIn, btnROOut, btnSPIn, btnSPOut, btnFRIn, btnFROut);
             }
             else
             {
                 this.WindowState = FormWindowState.Normal;
                 this.Size = formSize;
                 btnResize.Image = Properties.Resources.maximize;
-                Refresh();
+                RepaintControls(tbIn, tbOut, cmbIn, cmbOut, btnSwitch, labelOut, btnENIn, btnENOut, btnROIn, btnROOut, btnSPIn, btnSPOut, btnFRIn, btnFROut);
             }
 
         }
@@ -730,11 +800,12 @@ namespace Translao
 
 
 
+
+
+
+
+
         #endregion
 
-
-
     }
-
-
-}
+    }

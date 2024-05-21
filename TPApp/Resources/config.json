@@ -1,7 +1,7 @@
 ﻿{
-  "ColorOne": "red",
-  "ColorTwo": "blue",
-  "GradientType": "Linear",
-  "Voice": "Female",
-  "MaxShapes" : 10
+  "ColorOne": "Black",
+  "ColorTwo": "Yellow",
+  "GradientType": "Circle2",
+  "Voice": 2,
+  "MaxShapes": 20
 }

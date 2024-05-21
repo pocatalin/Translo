@@ -36,6 +36,7 @@ namespace Translao
         private List<Language> languages;
         private bool allowComboBoxIndexChanged = true;
         private int MaxShapes;
+
         public MainForm()
         {
             InitializeComponent();
@@ -81,9 +82,11 @@ namespace Translao
             gradient.UpdateGradient(ClientRectangle, colorOne, colorTwo, gradientType,MaxShapes);
             Invalidate();
         }
-        
         private void MainForm_Resize(object sender, EventArgs e)
         {
+            if (this.WindowState == FormWindowState.Minimized) return;
+              if (this.ClientSize == formSize) return;
+         
             int widthChange = this.ClientSize.Width - formSize.Width;
 
             tbIn.Width += widthChange / 2;
@@ -538,6 +541,8 @@ namespace Translao
         {
             formSize = this.ClientSize;
             this.WindowState = FormWindowState.Minimized;
+            RepaintControls(tbIn, tbOut, cmbIn, cmbOut, btnSwitch, labelOut, btnENIn, btnENOut, btnROIn, btnROOut, btnSPIn, btnSPOut, btnFRIn, btnFROut);
+
         }
 
         private void titlePanel_MouseDown(object sender, MouseEventArgs e)

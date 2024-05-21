@@ -139,6 +139,7 @@
             this.cmbOut.Location = new System.Drawing.Point(820, 667);
             this.cmbOut.Name = "cmbOut";
             this.cmbOut.Size = new System.Drawing.Size(315, 30);
+            this.cmbOut.Style = MetroFramework.MetroColorStyle.Black;
             this.cmbOut.TabIndex = 10;
             this.cmbOut.TabStop = false;
             // 
@@ -216,6 +217,7 @@
             this.cmbIn.Location = new System.Drawing.Point(450, 668);
             this.cmbIn.Name = "cmbIn";
             this.cmbIn.Size = new System.Drawing.Size(315, 30);
+            this.cmbIn.Style = MetroFramework.MetroColorStyle.Black;
             this.cmbIn.TabIndex = 6;
             this.cmbIn.TabStop = false;
             // 

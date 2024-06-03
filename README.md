@@ -1,1 +1,1 @@
-![Annotation 2024-05-20 140007](https://github.com/pocatalin/Translo/assets/32682232/441a2aff-e06a-413b-a6ee-b6a3bcd2f4c3)
+![Annotation 2024-06-03 123247](https://github.com/pocatalin/Translo/assets/32682232/e8122110-ca1b-4813-869f-1dfb194ef05e)

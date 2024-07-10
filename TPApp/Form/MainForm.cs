@@ -422,6 +422,12 @@ namespace Translao
             string switchText = tbIn.Text;
             tbIn.Text = tbOut.Text;
             tbOut.Text = switchText;
+            string labelText;
+            labelText=labelIn.Text;
+            if (labelText == "Auto Detect")
+                labelText = "Romanian";
+            labelIn.Text = labelOut.Text;
+            labelOut.Text = labelText;
 
             UpdateButtonHighlights();
             TbText_TextChanged(null, EventArgs.Empty);

@@ -28,7 +28,7 @@ namespace Translao
         private Size formSize;
         private string langIn = "ro";
         private string langOut = "en";
-        private const string apiKey = "bbd3451dd1bf40ceab31dc67cf3c0f9d";
+        private const string apiKey = "";
         private const string endpoint = "https://api.cognitive.microsofttranslator.com";
         private const string location = "westeurope";
         private readonly HttpClient client = new HttpClient();
